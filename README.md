@@ -13,7 +13,7 @@ I am an energetic IT professional with hands-on experience in Microsoft Azure, n
 - Technical Support & Troubleshooting
 
 ## Live Demo
-[View My Live Website](https://https://nice-sea-0c54a3f10.1.azurestaticapps.net)
+[View My Live Website](https://nice-sea-0c54a3f10.1.azurestaticapps.net)
 
 ## Project Proof
 ![Live Website](screenshots/website-screenshot.png)
