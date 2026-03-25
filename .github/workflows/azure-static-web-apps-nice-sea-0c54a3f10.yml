@@ -19,7 +19,8 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
@@ -32,8 +33,8 @@ jobs:
         id: idtoken
         with:
           script: |
-            const core = require('@actions/core')
-            return await core.getIDToken()
+            const coredemo = require('@actions/core')
+            return await coredemo.getIDToken()
           result-encoding: string
 
       - name: Build And Deploy
@@ -42,10 +43,10 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_SEA_0C54A3F10 }}
           action: "upload"
-          app_location: "."
-          api_location: ""
-          output_location: ""
-          app_build_command: ""
+          app_location: "."          # Root folder contains index.html, style.css, Screenshots/, Doc/
+          api_location: ""           # No API folder
+          output_location: "."       # Deploy everything in the root folder
+          app_build_command: ""      # No build step needed for static HTML/CSS
           github_id_token: ${{ steps.idtoken.outputs.result }}
 
   close_pull_request_job:
