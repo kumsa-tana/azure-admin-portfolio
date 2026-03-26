@@ -3,7 +3,7 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - main
+      - main  # deploy when code is pushed to main
 
 jobs:
   build_and_deploy_job:
@@ -17,5 +17,6 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"          # root folder with index.html
-          output_location: "/"       # folder with built files (here root)o
+          app_location: "/"          # root folder, where index.html is
+          api_location: ""           # leave empty if no API
+          output_location: "/"       # where built files go (same as root)
