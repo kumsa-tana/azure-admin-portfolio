@@ -3,13 +3,13 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - main  # deploy when code is pushed to main
+      - main
 
 jobs:
   build_and_deploy_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build And Deploy
         uses: Azure/static-web-apps-deploy@v1
@@ -17,6 +17,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"          # root folder, where index.html is
-          api_location: ""           # leave empty if no API
-          output_location: "/"       # where built files go (same as root)
+          app_location: "/"        # your index.html is here
+          api_location: ""         # no API
+          output_location: "/"     # no build output
+          skip_app_build: true     # 🚀 THIS FIXES YOUR ERROR
